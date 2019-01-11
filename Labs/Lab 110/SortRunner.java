@@ -15,8 +15,9 @@ public class SortRunner{
         }
 
         // sortedNums = mySort(nums);
-        sortedNums = bubbleSort(nums);
+        // sortedNums = bubbleSort(nums);
         // sortedNums = selectionSort(nums);
+        // sortedNums = insertionSort(nums);
 
         printArray(sortedNums);
     }
@@ -45,7 +46,6 @@ public class SortRunner{
                     int temp = nonSortedArray[i];
                     nonSortedArray[i] = nonSortedArray[j];
                     nonSortedArray[j] = temp;
-                    sortedArray = nonSortedArray;
                 }
             }
         }
@@ -53,10 +53,34 @@ public class SortRunner{
         return sortedArray;
     }
 
-    public static void swap(int a, int b){
-        int temp = a;
-        a = b;
-        b = temp;
+    public static int[] selectionSort(int[] nonSortedArray){
+        int[] sortedArray = new int[nonSortedArray.length];
+        for (int i = 0; i < nonSortedArray.length - 1; i++){
+            for (int j = i + 1; j < nonSortedArray.length; j++){
+                if (nonSortedArray[j] < nonSortedArray[i]){
+                    int temp = nonSortedArray[j];
+                    nonSortedArray[j] = nonSortedArray[i];
+                    nonSortedArray[i] = temp;
+                }
+            }
+        }
+        sortedArray = nonSortedArray;
+        return sortedArray;
+    }
+    
+    public static int[] insertionSort(int[] nonSortedArray){
+        int[] sortedArray = new int[nonSortedArray.length];
+        for (int i = 1; i < nonSortedArray.length; i++){
+            for (int j = i; j > 0; j--){
+                if (nonSortedArray[j] < nonSortedArray[j - 1]){
+                    int temp = nonSortedArray[j];
+                    nonSortedArray[j] = nonSortedArray[j - 1];
+                    nonSortedArray[j - 1] = temp;
+                }
+            }
+        }
+        sortedArray = nonSortedArray;
+        return sortedArray;
     }
 
     public static void printArray(int[] array){
