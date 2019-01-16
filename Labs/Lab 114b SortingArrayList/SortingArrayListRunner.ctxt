@@ -2,12 +2,12 @@
 comment0.target=SortingArrayListRunner
 comment1.params=
 comment1.target=void\ main()
-comment2.params=nonSortedArray
+comment2.params=nonSortedArrayList
 comment2.target=java.util.ArrayList\ mySort(java.util.ArrayList)
-comment3.params=nonSortedArray
+comment3.params=nonSortedArrayList
 comment3.target=java.util.ArrayList\ bubbleSort(java.util.ArrayList)
-comment4.params=nonSortedArray
+comment4.params=nonSortedArrayList
 comment4.target=java.util.ArrayList\ selectionSort(java.util.ArrayList)
-comment5.params=nonSortedArray
+comment5.params=nonSortedArrayList
 comment5.target=java.util.ArrayList\ insertionSort(java.util.ArrayList)
 numComments=6
