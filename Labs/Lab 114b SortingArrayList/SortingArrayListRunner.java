@@ -12,14 +12,11 @@ public class SortingArrayListRunner{
         ArrayList<Integer> nums = new ArrayList<Integer>();
         ArrayList<Integer> sortedNums = new ArrayList<Integer>();
 
-        // loading array w/ random integers
-        for (int i = 0; i < nums.size(); i++){
-            nums.add((int)(Math.random()*10)+1);
-        }
+        nums.add(1); nums.add(5); nums.add(3); nums.add(7); nums.add(2);
 
-        sortedNums = mySort(nums);
+        // sortedNums = mySort(nums);
         // sortedNums = bubbleSort(nums);
-        // sortedNums = selectionSort(nums);
+        sortedNums = selectionSort(nums);
         // sortedNums = insertionSort(nums);
 
         System.out.println(sortedNums);
@@ -131,11 +128,5 @@ public class SortingArrayListRunner{
         System.out.println("Swaps: " + swaps); 
         System.out.println("Comparisons: " + comparisons);
         return sortedArray;
-    }
-
-    public static void printArray(ArrayList<Integer> array){
-        for (int i = 0; i < array.size(); i++){
-            System.out.print(" " + array.get(i));
-        }
     }
 }
