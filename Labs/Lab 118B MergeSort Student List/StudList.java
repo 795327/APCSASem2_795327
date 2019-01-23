@@ -3,7 +3,7 @@
  * StudList
  *
  * @author (Noel Salmeron)
- * @version (1025)
+ * @version (118)
  */
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -131,7 +131,7 @@ public class StudList{
     public static void merge(ArrayList<Student> a, ArrayList<Student> l, ArrayList<Student> r, int left, int right) {
         int i = 0, j = 0, k = 0;
         while (i < left && j < right){
-            if (l.get(i).getStuNumber() <= r.get(j).getStuNumber()){
+            if (l.get(i).getStuNumber() < r.get(j).getStuNumber()){
                 a.set(k++, l.get(i++));
             } else {
                 a.set(k++, r.get(j++));
