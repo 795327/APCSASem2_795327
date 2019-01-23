@@ -23,7 +23,8 @@ public class StudList{
         System.out.println("4  Clear the Student List");
         System.out.println("5  Print the Student List");
         System.out.println("6  Print a Student"); 
-        System.out.println("7  Sort Student List"); System.out.println();
+        System.out.println("7  Sort Student List");
+        System.out.println("8  Search Student List"); System.out.println();
         System.out.println("Enter a menu number or enter '0' to quit: ");
         int input = action.nextInt();
         return input;
@@ -109,29 +110,32 @@ public class StudList{
         }
         return null;
     }
-
+    
+    // merge sort of Student List
     public static void mergeSort(ArrayList<Student> a, int n) {
+        // base case
         if (n < 2){
             return;
         }
         int m = n / 2;
-        ArrayList<Student> l = new ArrayList<Student>();
-        ArrayList<Student> r = new ArrayList<Student>();
+        ArrayList<Student> l = new ArrayList<Student>(); // left half of ArrayList
+        ArrayList<Student> r = new ArrayList<Student>(); // right half of ArrayList
         for (int i = 0; i < m; i++) {
-            l.set(i, a.get(i));
+            l.add(a.get(i));
         }
         for (int i = m; i < n; i++) {
-            r.set(i - m, a.get(i));
+            r.add(a.get(i));
         }
         mergeSort(l, m);
         mergeSort(r, n - m);
         merge(a, l, r, m, n - m);
     }
-
+    
+    // merging method used for merge sort
     public static void merge(ArrayList<Student> a, ArrayList<Student> l, ArrayList<Student> r, int left, int right) {
         int i = 0, j = 0, k = 0;
         while (i < left && j < right){
-            if (l.get(i).getStuNumber() < r.get(j).getStuNumber()){
+            if (l.get(i).getStuNumber() <= r.get(j).getStuNumber()){
                 a.set(k++, l.get(i++));
             } else {
                 a.set(k++, r.get(j++));
@@ -145,10 +149,19 @@ public class StudList{
         }
     }
 
+    public void runMergeSort(){
+        mergeSort(studList, studList.size());
+    }
+    
+    // binary search of Student List
+    public void binarySearch(){
+        
+    }
+
     public int getStudentListSize() { // returns Student List size
         return studList.size();
     }
-    
+
     public ArrayList<Student> getStudentList() { // returns Student List
         return studList;
     }

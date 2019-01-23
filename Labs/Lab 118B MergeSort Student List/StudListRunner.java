@@ -12,12 +12,12 @@ public class StudListRunner{
         // declares and initializes new student list
         StudList studList = new StudList();
         boolean running = true;
-        
+
         // while loop that runs a main menu for the user to pick an activity
         // and then calls the method corresponding to the activity selected
         while (running = true){
             int menuNumber = studList.menuNumber();
-            
+
             // adding a student
             if (menuNumber == 1){
                 Scanner input = new Scanner(System.in);
@@ -123,12 +123,18 @@ public class StudListRunner{
                     }
                 }
             }
-            
+
             //sorting student list w/ merge sort
             if (menuNumber == 7){
-                studList.mergeSort(studList.getStudentList(), studList.getStudentListSize() - 1);
+                studList.runMergeSort();
                 System.out.println("\nSorted Student List (by student number): ");
                 studList.printStudentList();
+            }
+            
+            // searches student list
+            if (menuNumber == 8){
+                studList.runMergeSort();
+                studList.binarySearch();
             }
 
             // exits program if user chooses to by enter 'q'
