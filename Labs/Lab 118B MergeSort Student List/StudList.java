@@ -111,6 +111,17 @@ public class StudList{
         return null;
     }
     
+    public Student printStudent2(int num){
+        for(int i = 0; i < studList.size(); i++) { // traverses student list
+            if(num != 0) {
+                if(studList.get(i).getStuNumber() == num) { // checks for a matching student num
+                    return studList.get(i);
+                }
+            }
+        }
+        return null;
+    }
+    
     // merge sort of Student List
     public static void mergeSort(ArrayList<Student> a, int n) {
         // base case
@@ -154,8 +165,26 @@ public class StudList{
     }
     
     // binary search of Student List
-    public void binarySearch(){
-        
+    public int binarySearch(ArrayList<Student> a, int l, int r, int x){
+        if (r >= l) { 
+            int mid = l + (r - l) / 2; 
+  
+            if (a.get(mid).getStuNumber() == x) 
+                return a.get(mid).getStuNumber(); 
+  
+            if (a.get(mid).getStuNumber() > x) 
+                return binarySearch(a, l, mid - 1, x); 
+  
+            return binarySearch(a, mid + 1, r, x); 
+        } 
+  
+        // We reach here when element is not present 
+        // in array 
+        return -1;
+    }
+    
+    public int runBinarySearch(int x){
+        return binarySearch(studList, studList.size()/2, studList.size()/2, x);
     }
 
     public int getStudentListSize() { // returns Student List size

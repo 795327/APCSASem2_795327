@@ -133,8 +133,13 @@ public class StudListRunner{
             
             // searches student list
             if (menuNumber == 8){
+                Scanner input = new Scanner(System.in);
+                System.out.println("\nEnter a student's number to search by: ");
+                int num = input.nextInt();
                 studList.runMergeSort();
-                studList.binarySearch();
+                studList.runBinarySearch(num);
+                Student s = studList.printStudent2(studList.runBinarySearch(num));
+                System.out.println("\nName: " + s.getFullName() + ", \nStudent Number: " + s.getStuNumber() + ", \nGPA: " + s.getGPA());
             }
 
             // exits program if user chooses to by enter 'q'
