@@ -15,14 +15,14 @@ public class CanvasComponent extends JComponent
     int height;
     
     public CanvasComponent(int width, int height){
+        rX = 0;
+        rY = 0;
+        width = 100;
+        height = 100;
         setSize(width, height);
-        rX = 100;
-        rY = 100;
-        width = 200;
-        height = 200;
     }
     
-    public void paintComponent(Graphics g){
+    protected void paintComponent(Graphics g){
         g.setColor(Color.blue);
         g.fillRect(rX, rY, width, height);
     }

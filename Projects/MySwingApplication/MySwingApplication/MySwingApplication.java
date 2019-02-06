@@ -22,6 +22,7 @@ public class MySwingApplication implements Runnable
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         canvasComponent = new CanvasComponent(200, 200);
         canvasComponent.setSize(200, 200);
+        // paint component?
         jFrame.add(canvasComponent);
         jFrame.setVisible(true);
     }
