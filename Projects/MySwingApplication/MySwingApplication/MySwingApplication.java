@@ -18,10 +18,15 @@ public class MySwingApplication implements Runnable
         jFrame.add(canvasComponent);
         jFrame.setVisible(true);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.addKeyListener(canvasComponent);
     }
     
     public static void main() {
         MySwingApplication mySwingApplicationSwing = new MySwingApplication();
         javax.swing.SwingUtilities.invokeLater(mySwingApplicationSwing);
+    }
+    
+    public CanvasComponent getCanvasComponent(){
+        return canvasComponent;
     }
 }
