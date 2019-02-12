@@ -24,7 +24,7 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
     int gutterX;
     int gutterY;
     Timer animationTimer;
-    int motionSpeed = 1;
+    int motionSpeed;
 
     public CanvasComponent(int w, int h){
         setSize(w, h);
@@ -38,8 +38,9 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
         animationDeltaY = 0;
         gutterX = 10;
         gutterY = 10;
-        animationTimer = new Timer(20, MySwingApplication.getCanvasComponent());
+        animationTimer = new Timer(20, this);
         animationTimer.start();
+        motionSpeed = 1;
     }
 
     public void paintComponent(Graphics g){
@@ -71,68 +72,53 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
         if (shapeSelected == false){
             Dimension componentSizeDimension = new Dimension(getSize());
             // right side
-            if (rX + width + gutterX > componentSizeDimension.getWidth()){
+            if (rX + width + animationDeltaX + gutterX > componentSizeDimension.getWidth()){
+                animationDeltaX = 0;
+                animationDeltaY = 1;
                 rX = ((int)componentSizeDimension.getWidth() - width - gutterX);
                 rY += animationDeltaY * motionSpeed;
-                repaint();
             }
-            // bottom
-            if (rY + height + gutterY > componentSizeDimension.getHeight()){
+            // bottom side
+            else if (rY + height + animationDeltaY + gutterY > componentSizeDimension.getHeight()){
+                animationDeltaX = -1;
+                animationDeltaY = 0;
                 rY = ((int)componentSizeDimension.getHeight() - height - gutterY);
                 rX += animationDeltaX * motionSpeed;
-                repaint();
             }
             // left side
-            if (rX - width < gutterX){
+            else if (rX + animationDeltaX < gutterX){
+                animationDeltaX = 0;
+                animationDeltaY = -1;
                 rX = gutterX;
                 rY += animationDeltaY * motionSpeed;
-                repaint();
             }
-            // bottom2
-            if (rY - height < gutterY){
+            // bottom side 2
+            else if (rY + animationDeltaY < gutterY){
+                animationDeltaX = 1;
+                animationDeltaY = 0;
                 rY = gutterY;
                 rX += animationDeltaX * motionSpeed;
-                repaint();
+            } else {
+                rX += animationDeltaX * motionSpeed;
+                rY += animationDeltaY * motionSpeed;
             }
-            rX += animationDeltaX * motionSpeed;
-            rY += animationDeltaY * motionSpeed;
-            repaint();
         }
+        repaint();
     }
 
     public void keyTyped(KeyEvent e){
-        keyChar = e.getKeyChar();
+        char keyChar = e.getKeyChar();
         if (keyChar == '+')
             motionSpeed += 1;
         if (keyChar == '-' && motionSpeed > 0)
             motionSpeed -= 1;
     }
 
-    public void keyPressed(KeyEvent e){
-
-    }
-
-    public void keyReleased(KeyEvent e){
-
-    }
-
-    public void mouseClicked(MouseEvent e){
-
-    }
-
-    public void mouseReleased(MouseEvent e){
-
-    }
-
-    public void mouseEntered(MouseEvent e){
-
-    }
-
-    public void mouseExited(MouseEvent e){
-
-    }
-
-    public void mouseMoved(MouseEvent e){
-
-    }
+    public void keyPressed(KeyEvent e){}
+    public void keyReleased(KeyEvent e){}
+    public void mouseClicked(MouseEvent e){}
+    public void mouseReleased(MouseEvent e){}
+    public void mouseEntered(MouseEvent e){}
+    public void mouseExited(MouseEvent e){}
+    public void mouseMoved(MouseEvent e){}
 }

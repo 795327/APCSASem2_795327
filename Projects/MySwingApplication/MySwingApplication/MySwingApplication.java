@@ -8,17 +8,17 @@
 import javax.swing.*;
 public class MySwingApplication implements Runnable
 {
-    private JFrame jFrame;
-    private CanvasComponent canvasComponent;
+    JFrame jFrame;
+    CanvasComponent canvasComponent;
     
     public void run(){
         jFrame = new JFrame("Magic Window");
         jFrame.setSize(400, 400);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         canvasComponent = new CanvasComponent(100, 100);
         jFrame.add(canvasComponent);
-        jFrame.setVisible(true);
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.addKeyListener(canvasComponent);
+        jFrame.setVisible(true);
     }
     
     public static void main() {
