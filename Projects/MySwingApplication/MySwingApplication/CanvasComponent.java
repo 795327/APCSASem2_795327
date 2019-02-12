@@ -38,22 +38,26 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
         animationDeltaY = 0;
         gutterX = 10;
         gutterY = 10;
-        animationTimer = new Timer(20, this);
+        animationTimer = new Timer(10, this);
         animationTimer.start();
         motionSpeed = 1;
     }
 
     public void paintComponent(Graphics g){
-        g.setColor(Color.cyan);
+        g.setColor(Color.blue);
         g.fillRect(rX, rY, width, height);
     }
 
     public void mousePressed(MouseEvent e){
         mouseFromX = e.getX();
         mouseFromY = e.getY();
+        Dimension componentSizeDimension = new Dimension(getSize());
         if (mouseFromX > rX && mouseFromY > rY && rX + width >= mouseFromX && rY + height >= mouseFromY){
             shapeSelected = true;
-        } else {shapeSelected = false;}
+        } else {
+            shapeSelected = false;
+        }
+        repaint();
     }
 
     public void mouseDragged(MouseEvent e){
@@ -67,32 +71,34 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
             repaint();
         }
     }
+    
+    public void mouseReleased(MouseEvent e){shapeSelected = false;}
 
     public void actionPerformed(ActionEvent e){
         if (shapeSelected == false){
             Dimension componentSizeDimension = new Dimension(getSize());
-            // right side
+            // up
             if (rX + width + animationDeltaX + gutterX > componentSizeDimension.getWidth()){
                 animationDeltaX = 0;
                 animationDeltaY = 1;
                 rX = ((int)componentSizeDimension.getWidth() - width - gutterX);
                 rY += animationDeltaY * motionSpeed;
             }
-            // bottom side
+            // left
             else if (rY + height + animationDeltaY + gutterY > componentSizeDimension.getHeight()){
                 animationDeltaX = -1;
                 animationDeltaY = 0;
                 rY = ((int)componentSizeDimension.getHeight() - height - gutterY);
                 rX += animationDeltaX * motionSpeed;
             }
-            // left side
+            // down
             else if (rX + animationDeltaX < gutterX){
                 animationDeltaX = 0;
                 animationDeltaY = -1;
                 rX = gutterX;
                 rY += animationDeltaY * motionSpeed;
             }
-            // bottom side 2
+            // right
             else if (rY + animationDeltaY < gutterY){
                 animationDeltaX = 1;
                 animationDeltaY = 0;
@@ -117,7 +123,6 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
     public void keyPressed(KeyEvent e){}
     public void keyReleased(KeyEvent e){}
     public void mouseClicked(MouseEvent e){}
-    public void mouseReleased(MouseEvent e){}
     public void mouseEntered(MouseEvent e){}
     public void mouseExited(MouseEvent e){}
     public void mouseMoved(MouseEvent e){}
