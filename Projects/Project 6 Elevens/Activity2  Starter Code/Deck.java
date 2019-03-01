@@ -30,8 +30,11 @@ public class Deck {
      */
     public Deck(String[] ranks, String[] suits, int[] values) {
         cards = new ArrayList<Card>();
-        for (int i = 0; i < cards.size(); i++){
-            cards.add(new Card(ranks[i], suits[i], values[i]));
+        for (int j = 0; j < ranks.length; j++) {
+            for (int i = 0; i < suits.length; i++) {
+                String suit = suits[i];
+                cards.add(new Card(ranks[j], suit, values[j]));
+            }
         }
         size = cards.size();
         shuffle();
@@ -42,7 +45,7 @@ public class Deck {
      * @return true if this deck is empty, false otherwise.
      */
     public boolean isEmpty() {
-        return size == 0;
+        return cards.size() == 0;
     }
 
     /**
@@ -50,7 +53,7 @@ public class Deck {
      * @return the number of undealt cards in this deck.
      */
     public int size() {
-        return size;
+        return cards.size();
     }
 
     /**
@@ -67,12 +70,11 @@ public class Deck {
      *         previously dealt.
      */
     public Card deal() {
-        if (cards.size() == 0){
-            return null;
-        } else {
-            size =- 1;
+        size = size - 1;
+        if (size > 0) {
             return cards.get(size);
         }
+        return null;
     }
 
     /**
