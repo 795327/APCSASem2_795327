@@ -52,10 +52,11 @@ public class ElevensBoard extends Board {
      */
     @Override
     public boolean isLegal(List<Integer> selectedCards) {
-        if (selectedCards.size() == 2)
+        if (selectedCards.size() == 2){
             return containsPairSum11(selectedCards);
-        else if (selectedCards.size() == 3)
+        } else if (selectedCards.size() == 3){
             return containsJQK(selectedCards);
+        }
         return false;
     }
 
@@ -69,10 +70,11 @@ public class ElevensBoard extends Board {
      */
     @Override
     public boolean anotherPlayIsPossible() {
-        List<Integer> indexes = cardIndexes();
-        if (!containsPairSum11(indexes))
-            return containsJQK(indexes);
-        return true;
+        if (containsPairSum11(cardIndexes()) != true){
+            return containsJQK(cardIndexes());
+        } else {
+            return containsPairSum11(cardIndexes());      
+        }
     }
 
     /**
@@ -84,17 +86,17 @@ public class ElevensBoard extends Board {
      *              contain an 11-pair; false otherwise.
      */
     private boolean containsPairSum11(List<Integer> selectedCards) {
-        if (selectedCards.size() < 2)
+        if (selectedCards.size() < 2){
             return false;
-
+        }
         for (int i = 0; i < selectedCards.size() - 1; i++){
             for (int a = i + 1; a < selectedCards.size(); a++){
                 if (cardAt(selectedCards.get(i)).pointValue() + 
-                cardAt(selectedCards.get(i)).pointValue() == 11)
+                cardAt(selectedCards.get(a)).pointValue() == 11){
                     return true;
+                }
             }
         }
-
         return false;
     }
 
@@ -110,10 +112,9 @@ public class ElevensBoard extends Board {
         boolean containsJack = false;
         boolean containsQueen = false;
         boolean containsKing = false;
-
-        if (selectedCards.size() < 3)
+        if (selectedCards.size() < 3){
             return false;
-
+        }
         for (int i = 0; i < selectedCards.size(); i++){
             if (cardAt(selectedCards.get(i)).rank() == "jack")
                 containsJack = true;
@@ -124,7 +125,12 @@ public class ElevensBoard extends Board {
             else if (cardAt(selectedCards.get(i)).rank() == "king")
                 containsKing = true;
         }
-
-        return (containsJack && containsQueen && containsKing);
+        if (containsJack == true &&
+            containsQueen == true &&
+            containsKing == true){
+                return true;
+        } else {
+            return false;
+        }
     }
 }
