@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=StringChecker
+comment0.text=\r\n\ StringChecker\r\n\r\n\ @author\ (Noel\ Salmeron)\r\n\ @version\ (307)\r\n
+comment1.params=s
+comment1.target=boolean\ isValid(java.lang.String)
+numComments=2

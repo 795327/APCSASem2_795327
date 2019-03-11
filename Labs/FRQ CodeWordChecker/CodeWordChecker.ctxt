@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=CodeWordChecker
+comment0.text=\r\n\ CodeWordChecker\r\n\r\n\ @author\ (Noel\ Salmeron)\r\n\ @version\ (307)\r\n
+comment1.params=minLen\ maxLen\ noStr
+comment1.target=CodeWordChecker(int,\ int,\ java.lang.String)
+comment2.params=noString
+comment2.target=CodeWordChecker(java.lang.String)
+comment3.params=str
+comment3.target=boolean\ isValid(java.lang.String)
+numComments=4
