@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class SelectionSorter here.
+ * SelectionSorter
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Noel Salmeron)
+ * @version (313)
  */
 public class SelectionSorter extends Sorter
 {
@@ -18,9 +18,6 @@ public class SelectionSorter extends Sorter
                 }
             }
             swap(nonSortedArray, index, i);
-            // int temp = nonSortedArray[index];
-            // nonSortedArray[index] = nonSortedArray[i];
-            // nonSortedArray[i] = temp;
         }
         sortedArray = nonSortedArray;
     }

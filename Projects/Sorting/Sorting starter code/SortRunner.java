@@ -7,7 +7,7 @@
  */
 public class SortRunner
 {
-    static int[] lengthArray = { 10, 100, 1000, 10000 };
+    static int[] lengthArray = { 10, 100, 1000};
     static boolean printArrayFlag = false;
 
     public static boolean isSorted(int[] a) {
@@ -223,10 +223,10 @@ public class SortRunner
         Sorter[][] heapSorterArray = new Sorter[lengthArray.length][];
         for (int lengthIndex = 0; lengthIndex < lengthArray.length; lengthIndex++) {
             int length = lengthArray[lengthIndex];
-            //             SelectionSorter selectionSorter = new SelectionSorter();
-            //             selectionSorterArray[lengthIndex] = runStandardSorts(selectionSorter, length, "Selection sort");
-            //             InsertionSorter insertionSorter = new InsertionSorter();
-            //             insertionSorterArray[lengthIndex] = runStandardSorts(insertionSorter, length, "Insertion sort");
+                        SelectionSorter selectionSorter = new SelectionSorter();
+                        selectionSorterArray[lengthIndex] = runStandardSorts(selectionSorter, length, "Selection sort");
+                        InsertionSorter insertionSorter = new InsertionSorter();
+                        insertionSorterArray[lengthIndex] = runStandardSorts(insertionSorter, length, "Insertion sort");
             //             MergeSorter mergeSorter = new MergeSorter();
             //             mergeSorterArray[lengthIndex] = runStandardSorts(mergeSorter, length, "Merge sort");
             //             HeapSorter heapSorter = new HeapSorter();
