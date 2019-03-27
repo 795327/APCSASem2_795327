@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Doctor
+comment1.params=
+comment1.target=Doctor()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Doctor\r\n
+comment2.params=
+comment2.target=int\ getSalary()
+comment3.params=
+comment3.target=void\ fillList()
+comment4.params=
+comment4.target=void\ sortBySalary()
+comment5.params=
+comment5.target=void\ printList()
+numComments=6

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Job
+comment1.params=
+comment1.target=int\ getSalary()
+comment2.params=
+comment2.target=void\ sortBySalary()
+comment3.params=
+comment3.target=void\ printList()
+numComments=4
