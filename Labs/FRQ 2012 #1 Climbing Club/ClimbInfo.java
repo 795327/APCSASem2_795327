@@ -1,33 +1,28 @@
 
 /**
- * Write a description of class ClimbInfo here.
+ * ClimbInfo
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Noel Salmeron)
+ * @version (410)
  */
 public class ClimbInfo
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private String name;
+    private int time;
 
     /**
      * Constructor for objects of class ClimbInfo
      */
-    public ClimbInfo()
-    {
-        // initialise instance variables
-        x = 0;
+    public ClimbInfo(String peakName, int climbTime){
+        name = peakName;
+        time = climbTime;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public String getName(){
+        return name;
+    }
+    
+    public int getTime(){
+        return time;
     }
 }

@@ -1,33 +1,39 @@
 
 /**
- * Write a description of class ClimbingClub here.
+ * ClimbingClub
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Noel Salmeron)
+ * @version (410)
  */
+import java.util.ArrayList;
 public class ClimbingClub
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private ArrayList<ClimbInfo> climbList;
 
     /**
      * Constructor for objects of class ClimbingClub
      */
-    public ClimbingClub()
-    {
-        // initialise instance variables
-        x = 0;
+    public ClimbingClub(){
+        climbList = new ArrayList<ClimbInfo>();
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    // ClimbInfo objects in the order they were added
+    public void addClimbA(String peakName, int climbTime){
+        climbList.add(new ClimbInfo(peakName, climbTime));
+    }
+
+    // ClimbInfo objects in alphabetical order
+    public void addClimbB(String peakName, int climbTime){   
+        for (int i = 0; i < climbList.size(); i++){
+            if (peakName.compareTo(climbList.get(i).getName()) < 0){
+                climbList.add(i, new ClimbInfo(peakName, climbTime)); return;
+            }
+        }
+        climbList.add(new ClimbInfo(peakName, climbTime));
+    }
+    
+    public void printList(){
+        for (int i = 0; i < climbList.size(); i++)
+            System.out.println(i+1 + ". " + climbList.get(i).getName() + ": " + climbList.get(i).getTime());
     }
 }
