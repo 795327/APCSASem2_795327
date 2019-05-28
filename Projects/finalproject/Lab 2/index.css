@@ -6,6 +6,9 @@ p{
 	font-family: "Courier";
 	font-size: 12;
 }
+h1{
+	color: Tomato;
+}
 class{
 	font-weight: bold;
 	text-align: center;
